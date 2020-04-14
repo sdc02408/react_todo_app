@@ -37,4 +37,115 @@ const TodoList =({todos,onRemove,onToggle}) =>{
   )
 }
 
+
+// let Expromise = function(param){
+//   return new Promise((resolve, reject) =>{
+//     if(param && param>0){
+//       resolve('posivite');
+//     }
+//     else if(param && param<0){
+//       resolve('negative');
+//     }
+//     else if(param === 0){
+//       throw 'error';
+//     }
+//     else{
+//       //nothing
+//     }
+//   })
+// }
+//
+// Expromise(1)
+// .then(data => console.log(data));
+//
+// Expromise(-1)
+// .then(data => console.log(data), error => console.log(error))
+// .catch(error => console.log(error))
+//
+//
+// setTimeout(function() {
+//   console.log('a')
+//   setTimeout(function() {
+//     console.log('b')
+//     setTimeout(function() {
+//       console.log('c')
+//     }, 1000)
+//   }, 1000)
+// }, 1000)
+//
+// new Promise(resolve => {
+//   resolve('A');
+// }).then(data => {
+//   console.log(data);
+//   return 'B';
+// })
+//
+// new Promise(resolve => {
+//   setTimeout(() => {
+//     resolve('A');
+//   }, 1000);
+// }).then(data => {
+//   console.log(data);
+//   return new Promise(resolve => {
+//     setTimeout(() => {
+//       resolve('B');
+//     }, 1000)
+//   })
+// }).then(data => {
+//   console.log(data);
+//   return new Promise(resolve => {
+//     setTimeout(() => {
+//       resolve('C');
+//     }, 1000)
+//   })
+// }).then(data => console.log(data));
+//
+// const promiseA = new Promise(resolve => {
+//   setTimeout(function(){
+//     resolve('A');
+//   }, 1000);
+// });
+//
+// const promiseB = new Promise(resolve => {
+//   setTimeout(function(){
+//     resolve('B');
+//   }, 1000);
+// });
+//
+// const promiseC = new Promise(resolve => {
+//   setTimeout(function(){
+//     resolve('C');
+//   }, 1000);
+// });
+//
+//
+// Promise.all([promiseA, promiseB, promiseC])
+// .then(values => console.log(values))
+
+async function print () {
+  const data1= await new Promise(resolve => {
+    setTimeout(()=> {
+      resolve('A');
+    },1000);
+  });
+  console.log(data1);
+  
+  const data2 = await new Promise( resolve=> {
+    setTimeout(()=> {
+      resolve('B');
+    }, 2000)
+  });
+  console.log(data2)
+  
+  const data3 = await new Promise( resolve => {
+    resolve('C')
+  }, 3000)
+  console.log(data3);
+}
+
+print();
+
+
 export default React.memo(TodoList);
+
+
